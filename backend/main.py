@@ -11,11 +11,15 @@ import json
 import hashlib
 import datetime
 
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 from rag_utils import retrieve_context
 
 app = FastAPI()
 
-GEMINI_API_KEY = ""
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 GEMINI_MODEL_ID = "gemini-2.5-flash"
 GEMINI_TTS_MODEL_ID = "gemini-2.5-flash-preview-tts"
 
