@@ -1,0 +1,18 @@
+{
+  "run": "20260511_1622",
+  "version": "multirag_v6",
+  "stores": {
+    "rag1_general_story": {
+      "faiss": "/content/drive/MyDrive/Wahaty_Project/04_multirag/indexes/wahaty_multirag_v6_20260511_1622/rag1_general_story.faiss",
+      "meta": "/content/drive/MyDrive/Wahaty_Project/04_multirag/indexes/wahaty_multirag_v6_20260511_1622/rag1_general_story_chunks.jsonl"
+    },
+    "rag2_curriculum_religion": {
+      "faiss": "/content/drive/MyDrive/Wahaty_Project/04_multirag/indexes/wahaty_multirag_v6_20260511_1622/rag2_curriculum_religion.faiss",
+      "meta": "/content/drive/MyDrive/Wahaty_Project/04_multirag/indexes/wahaty_multirag_v6_20260511_1622/rag2_curriculum_religion_chunks.jsonl"
+    },
+    "rag3_emotional": {
+      "faiss": "/content/drive/MyDrive/Wahaty_Project/04_multirag/indexes/wahaty_multirag_v6_20260511_1622/rag3_emotional.faiss",
+      "meta": "/content/drive/MyDrive/Wahaty_Project/04_multirag/indexes/wahaty_multirag_v6_20260511_1622/rag3_emotional_chunks.jsonl"
+    }
+  }
+}

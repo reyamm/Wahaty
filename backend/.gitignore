@@ -1,0 +1,17 @@
+.env
+venv/
+logs/
+checkpoints/
+__pycache__/
+*.pyc
+
+# local child/user data
+child_memories/*.json
+parent_policy/*.json
+
+# backups
+*backup*
+main_before_*.py
+rag_utils_before_*.py
+wahaty_v6_broken_backup.py
+wahaty_v6_hotfix_backup.py
