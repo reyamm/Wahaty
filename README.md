@@ -55,7 +55,7 @@ The routing step helps the system send each query to the correct response path i
 
 ### RAG and Multi-RAG
 
-Wahaty uses retrieval-based grounding to improve answer reliability. Instead of depending only on the modelâs internal knowledge, the system retrieves relevant information from prepared knowledge sources.
+Wahaty uses retrieval-based grounding to improve answer reliability. Instead of depending only on the model's internal knowledge, the system retrieves relevant information from prepared knowledge sources.
 
 The Multi-RAG version separates knowledge into different branches, allowing the system to retrieve from the most relevant source based on the detected intent.
 
