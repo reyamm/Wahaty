@@ -26,7 +26,7 @@ Kid Mode allows children to interact with the assistant through text and voice. 
 
 ### Parent Mode
 
-Parent Mode gives parents control over the childâs experience. Parents can manage blocked words, review activity logs, adjust restrictions, and supervise how the child uses the system.
+Parent Mode gives parents control over the child's experience. Parents can manage blocked words, review activity logs, adjust restrictions, and supervise how the child uses the system.
 
 ### Safety Layers
 
