@@ -72,59 +72,8 @@ The Multi-RAG version separates knowledge into different branches, allowing the 
 | Safety design | Input guard, parent policy, output guard |
 | Supported platforms | Android, iOS, Web, macOS, Windows, Linux |
 
-## Repository Structure
 
-```text
-wahaty/
-âââ android/                 # Flutter Android project files
-âââ ios/                     # Flutter iOS project files
-âââ lib/                     # Main Flutter application code
-âââ web/                     # Flutter web files
-âââ macos/                   # Flutter macOS files
-âââ windows/                 # Flutter Windows files
-âââ linux/                   # Flutter Linux files
-âââ test/                    # Flutter tests
-âââ assets/images/           # Application images and visual assets
-âââ backend/                 # FastAPI backend and AI pipeline
-â   âââ child_memories/      # Child-specific memory storage
-â   âââ rag_store/           # Retrieval storage and indexes
-â   âââ safety/              # Safety filtering components
-â   âââ LATEST_MULTIRAG_INDEX.json
-â   âââ main.py
-â   âââ rag_utils.py
-â   âââ wahaty_v6.py
-âââ pubspec.yaml             # Flutter dependencies
-âââ pubspec.lock             # Locked Flutter dependency versions
-âââ analysis_options.yaml    # Dart analysis configuration
-âââ .gitignore
-âââ README.md
-```
 
-## System Workflow
-
-The main Wahaty pipeline follows this flow:
-
-```text
-Child input
-    â
-Parent restrictions and blocked-word check
-    â
-Input safety guard
-    â
-Arabic text normalization
-    â
-Intent classification
-    â
-Route selection
-    â
-RAG or Multi-RAG retrieval when needed
-    â
-Gemini response generation
-    â
-Output safety guard
-    â
-Safe final response to the child
-```
 
 ## Backend Overview
 
@@ -242,4 +191,4 @@ Supervisor:
 
 ## License
 
-This project is intended for academic and research purposes. Add a license file if the repository will be shared publicly or reused by others.
+This project is intended for academic and research purposes. 
