@@ -1,0 +1,20 @@
+{
+  "label2id": {
+    "curriculum": 0,
+    "emotional": 1,
+    "general": 2,
+    "hard_unsafe": 3,
+    "religion": 4,
+    "soft_unsafe": 5,
+    "story": 6
+  },
+  "id2label": {
+    "0": "curriculum",
+    "1": "emotional",
+    "2": "general",
+    "3": "hard_unsafe",
+    "4": "religion",
+    "5": "soft_unsafe",
+    "6": "story"
+  }
+}
