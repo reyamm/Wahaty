@@ -536,6 +536,53 @@ def log_turn(**kwargs: Any) -> None:
 
 # ----------------------------- Public pipeline -----------------------------
 
+def is_greeting_query(text: str) -> bool:
+    t = normalize_arabic(text or "").lower().strip()
+    greetings = [
+        "اهلا",
+        "اهلين",
+        "هلا",
+        "مرحبا",
+        "السلام عليكم",
+        "وعليكم السلام",
+        "صباح الخير",
+        "مساء الخير"
+    ]
+    return any(g in t for g in greetings) and len(t.split()) <= 4
+
+
+def remove_greeting_prefix(answer: str) -> str:
+    if not answer:
+        return answer
+
+    cleaned = answer.strip()
+
+    patterns = [
+        r"^أهلاً\s+بك\s+يا\s+[^!\n،.]+[!،.\n]*\s*",
+        r"^اهلا\s+بك\s+يا\s+[^!\n،.]+[!،.\n]*\s*",
+        r"^أهلا\s+بك\s+يا\s+[^!\n،.]+[!،.\n]*\s*",
+
+        r"^مرحباً\s+بك\s+يا\s+[^!\n،.]+[!،.\n]*\s*",
+        r"^مرحبا\s+بك\s+يا\s+[^!\n،.]+[!،.\n]*\s*",
+
+        r"^أهلاً\s+يا\s+[^!\n،.]+[!،.\n]*\s*",
+        r"^اهلا\s+يا\s+[^!\n،.]+[!،.\n]*\s*",
+        r"^أهلا\s+يا\s+[^!\n،.]+[!،.\n]*\s*",
+
+        r"^مرحباً\s+يا\s+[^!\n،.]+[!،.\n]*\s*",
+        r"^مرحبا\s+يا\s+[^!\n،.]+[!،.\n]*\s*",
+
+        r"^حياك\s+الله\s+يا\s+[^!\n،.]+[!،.\n]*\s*",
+        r"^اهلين\s+يا\s+[^!\n،.]+[!،.\n]*\s*",
+        r"^هلا\s+يا\s+[^!\n،.]+[!،.\n]*\s*",
+    ]
+
+    for pat in patterns:
+        cleaned = re.sub(pat, "", cleaned, flags=re.IGNORECASE).strip()
+
+    return cleaned
+
+
 def wahaty_answer_v6(query: str, policy: Optional[dict] = None, child_mem: Optional[dict] = None, use_stream: bool = False, debug: bool = False) -> dict:
     policy = {**PARENT_POLICY, **(policy or {})}
     child_name = policy.get("child_name", "طفلي")
@@ -594,7 +641,11 @@ def wahaty_answer_v6(query: str, policy: Optional[dict] = None, child_mem: Optio
     out = check_output(raw)
     final_answer = arabize_digits(clean_llm_output(out["response"]))
 
+    if not is_greeting_query(q_norm):
+        final_answer = remove_greeting_prefix(final_answer)
+
     sources = []
+
     if retrieval["use_context"]:
         for item in items[:3]:
             m = item["meta"]
